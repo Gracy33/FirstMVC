@@ -1,0 +1,33 @@
+﻿@model FirstMVC.Models.Response
+
+@{
+    ViewBag.Title = "Thanx";
+}
+
+<div>
+    @if (Model.presence == true)
+    {
+        @:Super! Vous allez vous régaler! #YUMMY
+    }
+    else{
+        @:Dommage! Mais il y en aura plus pour nous...HA!
+    }
+</div>
+
+@{
+    try
+    {
+        WebMail.SmtpServer = "smtp.gmail.com";
+        WebMail.SmtpPort = 25;
+        WebMail.EnableSsl = true;
+        WebMail.UserName = "gracemingiedi@gmail.com";
+        WebMail.Password = "";
+        WebMail.From = "amandine@test.com";
+        WebMail.Send("elodie950@gmail.com", "Your atendance confirmation", Model.Nom + "is" + ((Model.presence ?? false) ? "" : "not") + "attending");
+
+    }
+    catch (Exception)
+    {
+        @:<b>Was unable to send the mail.</b>
+    }
+}

@@ -1,0 +1,28 @@
+﻿@model FirstMVC.Models.Response
+
+@{
+    ViewBag.Title = "confirm";
+}
+
+<h2>Confirm</h2>
+<div>
+    @using (Html.BeginForm())
+    {
+        <p>
+            Nom: @Html.TextBoxFor(p => p.Nom)
+        </p>
+        <p>
+            Email: @Html.TextBoxFor(p => p.Email)
+        </p>
+        <p>
+            Téléphone: @Html.TextBoxFor(p => p.Telephone)
+        </p>
+        <p>
+            Will you be there?
+            @Html.DropDownListFor(p => p.presence, new[] { new SelectListItem() { Text = "Yes, I'll be there", Value = bool.TrueString },
+           new SelectListItem() { Text = "No, I won't be there", Value= bool.FalseString}}, "Maybe - Maybe Not")
+        </p>
+
+        <a href="/Confirm/Thanx"><input type="submit" value="Confirm!"/></a>
+    }
+</div>
