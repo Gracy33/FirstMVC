@@ -19,10 +19,17 @@
         </p>
         <p>
             Will you be there?
-            @Html.DropDownListFor(p => p.presence, new[] { new SelectListItem() { Text = "Yes, I'll be there", Value = bool.TrueString },
-           new SelectListItem() { Text = "No, I won't be there", Value= bool.FalseString}}, "Maybe - Maybe Not")
+            @Html.DropDownListFor(p => p.presence, new[] { 
+           new SelectListItem() { Text = "Yes, I'll be there", Value = bool.TrueString },
+           new SelectListItem() { Text = "No, I won't be there", Value= bool.FalseString}},
+           "Maybe - Maybe Not")
         </p>
 
-        <a href="/Confirm/Thanx"><input type="submit" value="Confirm!"/></a>
+        <input type="submit" value="Submit" />
+
+        <br />
+        <div>
+            @Html.ValidationSummary()
+        </div>
     }
 </div>

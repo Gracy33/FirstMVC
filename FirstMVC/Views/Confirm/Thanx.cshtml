@@ -7,21 +7,28 @@
 <div>
     @if (Model.presence == true)
     {
-        @:Super! Vous allez vous régaler! #YUMMY
+        @:Great @Model.Nom)! You are SO gonna enjoy it...#YUMMY
     }
-    else{
-        @:Dommage! Mais il y en aura plus pour nous...HA!
+    else if (Model.presence == false)
+    {
+        @:What a pity @Model.Nom)! But hey, there will be more for us then...HA!
+    }
+    else
+    {
+        @:Come on now! You can't miss it...forget about WW ;-)
     }
 </div>
+
+<br />
 
 @{
     try
     {
         WebMail.SmtpServer = "smtp.gmail.com";
-        WebMail.SmtpPort = 25;
+        WebMail.SmtpPort = 465;
         WebMail.EnableSsl = true;
         WebMail.UserName = "gracemingiedi@gmail.com";
-        WebMail.Password = "";
+        WebMail.Password = "Jacqueline89.";
         WebMail.From = "amandine@test.com";
         WebMail.Send("elodie950@gmail.com", "Your atendance confirmation", Model.Nom + "is" + ((Model.presence ?? false) ? "" : "not") + "attending");
 

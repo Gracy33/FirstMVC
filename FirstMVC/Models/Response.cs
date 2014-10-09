@@ -8,13 +8,12 @@ namespace FirstMVC.Models
 {
     public class Response
     {
-        [Required(ErrorMessage = "Veuillez renseigner votre nom")]
+        [Required(ErrorMessage = "Vous avez oublié d'entrer votre nom")]
         public string Nom { get; set; }
-        [Required(ErrorMessage = "Veuillez renseigner votre mail")]
+        [Required(ErrorMessage = "Vous avez oublié d'entrer votre mail")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Veuillez renseigner votre Téléphone")]
+        [Required(ErrorMessage = "Vous avez oublié d'entrer votre téléphone")]
         public string Telephone { get; set; }
-        [Required(ErrorMessage = "Veuillez nous informer votre présence")]
         public bool? presence { get; set; }
     }
 }

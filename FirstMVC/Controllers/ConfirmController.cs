@@ -11,10 +11,10 @@ namespace FirstMVC.Controllers
     {
         //
         // GET: /Confirm/
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             return View();
-        }
+        }*/
 
         [HttpGet]
         public ViewResult confirm()
@@ -25,7 +25,14 @@ namespace FirstMVC.Controllers
         [HttpPost]
         public ViewResult confirm(Response response)
         {
-            return View("Thanx", response);
+            if (ModelState.IsValid)
+            {
+                return View("Thanx", response);
+            }
+            else
+            {
+                return View();
+            }
         }
 	}
 }
